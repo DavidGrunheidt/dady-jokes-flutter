@@ -1,2 +1,3 @@
-# dady-jokes-flutter
-An app that displays dady jokes with some personalization options
+# Dady Jokes APP
+
+This app follows https://github.com/kauemurakami/getx_pattern folder structure.
