@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
 
-import 'modules/home/home_page.dart';
+import 'routes/pages.dart';
+import 'routes/routes.dart';
 
 void main() {
   runApp(const DadyJokesApp());
@@ -13,12 +15,11 @@ class DadyJokesApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const HomePage(title: 'Flutter Demo Home Page'),
+    return GetMaterialApp(
+      title: 'Dady Jokes',
+      theme: ThemeData(primarySwatch: Colors.blue),
+      getPages: getAppPages(),
+      initialRoute: Routes.splashScreen,
     );
   }
 }
