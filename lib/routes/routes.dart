@@ -1,11 +1,19 @@
-class Routes {
-  static const _bottomNav = '/bottom_nav';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-  static const splashScreen = '/splash_screen';
-  static const login = '/login';
-  static const user = '/user';
+import '../modules/favorites/favorites_page.dart';
+import '../modules/feed/feed_page.dart';
+import '../modules/search/search_page.dart';
 
-  static const home = '$_bottomNav/home';
-  static const search = '$_bottomNav/search';
-  static const favorites = '$_bottomNav/favorites';
+GetPageRoute<dynamic> onGenerateTabsRoute(RouteSettings settings) {
+  switch (settings.name) {
+    case FeedPage.route:
+      return GetPageRoute(settings: settings, page: () => const FeedPage());
+    case SearchPage.route:
+      return GetPageRoute(settings: settings, page: () => const SearchPage());
+    case FavoritesPage.route:
+      return GetPageRoute(settings: settings, page: () => const FavoritesPage());
+  }
+
+  return GetPageRoute(settings: settings, page: () => const SizedBox());
 }
