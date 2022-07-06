@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 
+import 'modules/splash_screen/splash_screen_page.dart';
 import 'routes/pages.dart';
-import 'routes/routes.dart';
 
 void main() {
   runApp(const DadyJokesApp());
@@ -19,7 +19,7 @@ class DadyJokesApp extends StatelessWidget {
       title: 'Dady Jokes',
       theme: ThemeData(primarySwatch: Colors.blue),
       getPages: getAppPages(),
-      initialRoute: Routes.splashScreen,
+      initialRoute: SplashScreenPage.route,
     );
   }
 }
