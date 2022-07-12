@@ -22,9 +22,15 @@ class SplashScreenPage extends GetView<SplashScreenController> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Center(
-        child: CircularProgressIndicator(),
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            Image.asset('assets/images/logo.png', width: 200),
+            CircularProgressIndicator(color: Colors.blueGrey.withOpacity(0.4)),
+          ],
+        ),
       ),
     );
   }

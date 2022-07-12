@@ -8,6 +8,15 @@ SHELL := /bin/bash
 gen-flavors:
 	flutter pub run flutter_flavorizr
 
+gen-icons:
+	flutter pub run flutter_launcher_icons:main
+
+gen-native-splash:
+	flutter pub run flutter_native_splash:create --flavor dev
+	flutter pub run flutter_native_splash:create --flavor prod
+	flutter pub run flutter_native_splash:create --flavor qa
+	flutter pub run flutter_native_splash:create --flavor staging
+
 # Generate code
 gen-code:
 	flutter pub run build_runner build --delete-conflicting-outputs
