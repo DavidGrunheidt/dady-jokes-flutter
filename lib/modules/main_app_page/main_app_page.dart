@@ -17,13 +17,7 @@ class MainAppPage extends GetView<MainAppController> {
       navigatorKey: Get.nestedKey(MainTab.feed.routeNavTabNestedKey)!,
     ),
     NavTabDestination(
-      label: 'Search',
-      icon: const Icon(Icons.search_outlined),
-      tab: MainTab.search,
-      navigatorKey: Get.nestedKey(MainTab.search.routeNavTabNestedKey)!,
-    ),
-    NavTabDestination(
-      label: 'Feed',
+      label: 'Favorites',
       icon: const Icon(Icons.favorite_outline),
       tab: MainTab.favorites,
       navigatorKey: Get.nestedKey(MainTab.favorites.routeNavTabNestedKey)!,
