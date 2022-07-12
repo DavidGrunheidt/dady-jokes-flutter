@@ -15,13 +15,36 @@ dependencies:
   # General state management
   get: 4.6.5
 
+  # HTTP Requests
+  dio: ^4.0.6
+  pretty_dio_logger: ^1.1.1
+
+  # Data
+  json_annotation: ^4.5.0
+  copy_with_extension: ^4.0.0
+
+  # UI
   cupertino_icons: ^1.0.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
+  # Env
+  flutter_flavorizr: ^2.0.0
+
+  # Lint
   flutter_lints: ^2.0.0
+  analyzer: ^3.1.0
+
+  # Data
+  build_runner: ^2.0.4
+  json_serializable: ^6.1.4
+  copy_with_extension_gen: ^4.0.0
+
+  # Tests
+  mockito: ^5.0.10
+  http_mock_adapter: ^0.3.2
 
 flutter:
 
@@ -57,3 +80,70 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+flavorizr:
+  app:
+    android:
+      flavorDimensions: "flavor-type"
+    ios:
+  ide: idea
+
+  instructions:
+    - assets:download
+    - assets:extract
+    - android:androidManifest
+    - android:buildGradle
+    - flutter:flavors
+    - flutter:app
+    - flutter:targets
+    - ios:xcconfig
+    - ios:buildTargets
+    - ios:schema
+    - ios:plist
+    - assets:clean
+    - ide:config
+
+  flavors:
+    dev:
+      app:
+        name: "[Dev]Dady Jokes"
+      android:
+        applicationId: "com.dvosoftware.dadyjokes.dev"
+      ios:
+        bundleId: "com.dvosoftware.dadyjokes.dev"
+        variables:
+          APPLINK_SCHEME:
+            value: "dadyjokesappdev"
+
+    qa:
+      app:
+        name: "[QA]Dady Jokes"
+      android:
+        applicationId: "com.dvosoftware.dadyjokes.qa"
+      ios:
+        bundleId: "com.dvosoftware.dadyjokes.qa"
+        variables:
+          APPLINK_SCHEME:
+            value: "dadyjokesappqa"
+
+    staging:
+      app:
+        name: "[Stg]Dady Jokes"
+      android:
+        applicationId: "com.dvosoftware.dadyjokes.staging"
+      ios:
+        bundleId: "com.dvosoftware.dadyjokes.staging"
+        variables:
+          APPLINK_SCHEME:
+            value: "dadyjokesappstg"
+
+    prod:
+      app:
+        name: "Dady Jokes"
+      android:
+        applicationId: "com.dvosoftware.dadyjokes"
+      ios:
+        bundleId: "com.dvosoftware.dadyjokes"
+        variables:
+          APPLINK_SCHEME:
+            value: "dadyjokesapp"

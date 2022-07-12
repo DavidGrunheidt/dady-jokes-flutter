@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 
 class BaseGetxController extends GetxController {
   final firstLoading = true.obs;
-  final loading = false.obs;
+  late final loading = true.obs;
 
   @override
   void onInit() {

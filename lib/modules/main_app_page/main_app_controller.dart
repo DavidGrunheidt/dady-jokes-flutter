@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class MainAppController extends GetxController with GetSingleTickerProviderStateMixin {
+import '../../core/utils/base_getx_controller.dart';
+
+class MainAppController extends BaseGetxController with GetSingleTickerProviderStateMixin {
   MainAppController({
     required this.tabsLength,
   });
