@@ -5,7 +5,6 @@ import '../../data/services/dady_joke_service.dart';
 import '../../data/services/http_client/dady_joke_http_client.dart';
 
 class GlobalBindings extends Bindings {
-
   @override
   void dependencies() {
     Get.put<DadyJokeHttpClient>(DadyJokeHttpClient(), permanent: true);

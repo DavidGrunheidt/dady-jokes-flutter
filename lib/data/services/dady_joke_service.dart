@@ -10,7 +10,7 @@ import 'http_client/dady_joke_http_client.dart';
 abstract class DadyJokeService {
   Future<DadyJoke> getJoke({required String id});
 
-  Future<DadyJokesResponse> loadJokes({int? page, int? limit, String? term});
+  Future<DadyJokesResponse> loadJokes({int? page, int? limit = 10, String? term});
 }
 
 class DadyJokeServiceImpl extends GetxService implements DadyJokeService {
@@ -37,7 +37,7 @@ class DadyJokeServiceImpl extends GetxService implements DadyJokeService {
   }
 
   @override
-  Future<DadyJokesResponse> loadJokes({int? page, int? limit, String? term}) async {
+  Future<DadyJokesResponse> loadJokes({int? page, int? limit = 10, String? term}) async {
     final queryParams = {'page': page, 'limit': limit, 'term': term};
     final resp = await _httpClient.get<Map<String, dynamic>>('$searchJokePath?', queryParameters: queryParams);
     return DadyJokesResponse.fromJson(resp.data!);

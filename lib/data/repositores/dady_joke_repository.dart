@@ -8,18 +8,20 @@ import '../services/dady_joke_service.dart';
 class DadyJokeRepository extends BaseGetxController {
   final _dadyJokesService = Get.find<DadyJokeService>();
 
-  final RxList<DadyJoke> dadyJokes = <DadyJoke>[].obs;
-  final Rxn<DadyJokesResponse> lastDadyJokesResp = Rxn<DadyJokesResponse>();
+  final RxList<DadyJoke> searchedDadyJokes = <DadyJoke>[].obs;
+  final RxString lastTermSearched = ''.obs;
 
-  @override
-  Future<void> onInit() async {
-    await loadJokes();
-    super.onInit();
-  }
+  final Rx<DadyJokesResponse> lastDadyJokesResp = DadyJokesResponse.empty().obs;
 
-  Future<void> loadJokes({String? term}) async {
-    final jokesResp = await _dadyJokesService.loadJokes(page: lastDadyJokesResp.value?.nextPage ?? 0);
-    dadyJokes.addAll(jokesResp.results);
+  Future<void> searchJokes({String term = ''}) async {
+    if (term != lastTermSearched.value) {
+      lastTermSearched.value = term;
+      lastDadyJokesResp.value = DadyJokesResponse.empty();
+      searchedDadyJokes.clear();
+    }
+
+    final jokesResp = await _dadyJokesService.loadJokes(page: lastDadyJokesResp.value.nextPage, term: term);
     lastDadyJokesResp.value = jokesResp;
+    searchedDadyJokes.addAll(jokesResp.results);
   }
 }
