@@ -38,5 +38,15 @@ class DadyJokesResponse {
 
   factory DadyJokesResponse.fromJson(Map<String, dynamic> json) => _$DadyJokesResponseFromJson(json);
 
+  factory DadyJokesResponse.empty() => DadyJokesResponse(
+        currentPage: 0,
+        nextPage: 0,
+        previousPage: 0,
+        results: [],
+        searchTerm: '',
+        totalJokes: 0,
+        totalPages: 0,
+      );
+
   Map<String, dynamic> toJson() => _$DadyJokesResponseToJson(this);
 }

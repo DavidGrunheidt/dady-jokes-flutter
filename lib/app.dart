@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'core/utils/global_bindings.dart';
-import 'modules/splash_screen/splash_screen_page.dart';
+import 'modules/main_app_page/main_app_page.dart';
 import 'routes/pages.dart';
 
 class App extends StatelessWidget {
@@ -18,7 +18,7 @@ class App extends StatelessWidget {
       title: 'Dady Jokes',
       theme: ThemeData(primarySwatch: Colors.blue),
       getPages: getAppPages(),
-      initialRoute: SplashScreenPage.route,
+      initialRoute: MainAppPage.route,
       initialBinding: GlobalBindings(),
     );
   }

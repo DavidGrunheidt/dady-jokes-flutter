@@ -25,6 +25,7 @@ dependencies:
 
   # UI
   cupertino_icons: ^1.0.2
+  anim_search_bar: ^2.0.2
 
 dependency_overrides:
   xml: 6.1.0
@@ -50,7 +51,7 @@ dev_dependencies:
   http_mock_adapter: ^0.3.2
 
   # UI
-  flutter_launcher_icons: "^0.9.2"
+  flutter_launcher_icons: ^0.9.2
   flutter_native_splash: ^2.2.4
 
 flutter:
