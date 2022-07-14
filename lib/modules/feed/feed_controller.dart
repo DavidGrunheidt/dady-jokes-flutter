@@ -7,15 +7,17 @@ import '../../data/repositores/dady_joke_repository.dart';
 class FeedController extends BaseGetxController {
   final _dadyJokeRepository = Get.find<DadyJokeRepository>();
 
-  final RxInt totalJokes = 0.obs;
+  final RxInt totalJokesPage = 0.obs;
+  final RxInt totalJokesAll = 0.obs;
   final RxBool noResults = false.obs;
 
   @override
   Future<void> onInit() async {
     loading.value = true;
 
-    _dadyJokeRepository.searchedDadyJokes.stream.listen((event) => totalJokes.value = event.length + 1);
+    _dadyJokeRepository.searchedDadyJokes.stream.listen((event) => totalJokesPage.value = event.length + 1);
     _dadyJokeRepository.lastDadyJokesResp.stream.listen((event) {
+      totalJokesAll.value = event.totalJokes;
       noResults.value = event.currentPage == 1 && event.results.isEmpty;
     });
 
@@ -30,7 +32,7 @@ class FeedController extends BaseGetxController {
   }
 
   void onJokeChanged(int index, {String searchingTerm = ''}) {
-    final isLastJokeOfPage = index == (totalJokes.value - 1);
+    final isLastJokeOfPage = index == (totalJokesPage.value - 1);
     final isLastJokeOfAll = index == _dadyJokeRepository.lastDadyJokesResp.value.totalJokes;
     if (isLastJokeOfPage && !isLastJokeOfAll) loadJokes(term: searchingTerm);
   }
