@@ -43,7 +43,7 @@ class FeedPage extends GetView<FeedController> {
 
               return PageView.builder(
                 scrollDirection: Axis.vertical,
-                itemCount: controller.totalJokes.value,
+                itemCount: controller.totalJokesPage.value,
                 onPageChanged: (index) => controller.onJokeChanged(index, searchingTerm: _searchTextController.text),
                 itemBuilder: (context, index) {
                   if (controller.showNoMoreContentMsg(index)) {
@@ -67,7 +67,11 @@ class FeedPage extends GetView<FeedController> {
                     child: Center(
                       child: controller.loading.value || jokeData == null
                           ? const CircularProgressIndicator()
-                          : JokeCard(joke: jokeData, currentJokeIndex: index + 1),
+                          : JokeCard(
+                              joke: jokeData,
+                              currentJokeIndex: index + 1,
+                              totalJokes: controller.totalJokesAll.value,
+                            ),
                     ),
                   );
                 },
