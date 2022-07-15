@@ -1,11 +1,10 @@
 import 'package:get/get.dart';
 
-import '../../core/utils/base_getx_controller.dart';
 import '../model/dady_joke/dady_joke.dart';
 import '../model/dady_joke/dady_jokes_response.dart';
 import '../services/dady_joke_service.dart';
 
-class DadyJokeRepository extends BaseGetxController {
+class DadyJokeRepository extends GetxService {
   final _dadyJokesService = Get.find<DadyJokeService>();
 
   final RxList<DadyJoke> searchedDadyJokes = <DadyJoke>[].obs;
