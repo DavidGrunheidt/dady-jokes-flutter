@@ -7,13 +7,7 @@ import '../model/dady_joke/dady_jokes_response.dart';
 import 'http_client/base_http_service.dart';
 import 'http_client/dady_joke_http_client.dart';
 
-abstract class DadyJokeService {
-  Future<DadyJoke> getJoke({required String id});
-
-  Future<DadyJokesResponse> loadJokes({int? page, int? limit = 10, String? term});
-}
-
-class DadyJokeServiceImpl extends GetxService implements DadyJokeService {
+class DadyJokeService extends GetxService {
   final BaseHttpClient _httpClient = Get.find<DadyJokeHttpClient>();
 
   static const searchJokePath = '/search';
@@ -30,13 +24,11 @@ class DadyJokeServiceImpl extends GetxService implements DadyJokeService {
       });
   }
 
-  @override
   Future<DadyJoke> getJoke({required String id}) async {
     final resp = await _httpClient.get('$jokeIdPath/$id');
     return DadyJoke.fromJson(_buildJokeWithMissingFields(resp.data));
   }
 
-  @override
   Future<DadyJokesResponse> loadJokes({int? page, int? limit = 10, String? term}) async {
     final queryParams = {'page': page, 'limit': limit, 'term': term};
     final resp = await _httpClient.get<Map<String, dynamic>>('$searchJokePath?', queryParameters: queryParams);

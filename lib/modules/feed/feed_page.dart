@@ -91,7 +91,7 @@ class FeedPage extends GetView<FeedController> {
                 suffixIcon: const Icon(Icons.search_outlined),
                 onSuffixTap: () {
                   final term = _searchTextController.text;
-                  if (term.length < 3) {
+                  if (term.isNotEmpty && term.length < 3) {
                     return showSnackbar(context: context, content: 'Please type three or more characters');
                   }
 

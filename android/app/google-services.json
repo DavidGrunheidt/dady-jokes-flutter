@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "1023167023864",
+    "project_id": "dady-jokes-dev",
+    "storage_bucket": "dady-jokes-dev.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1023167023864:android:c8a7e7b0d24a3f3f5b890d",
+        "android_client_info": {
+          "package_name": "com.dvosoftware.dadyjokes.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1023167023864-5dpe9d35biiqo5buem5sq0n25dfkgmdp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC71u3eWxYwDEqafn_-rOh4twktuahpg_0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1023167023864-5dpe9d35biiqo5buem5sq0n25dfkgmdp.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1023167023864-f4i2tnjlfc6j8u0uv4kp7r7kd083qer2.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.dvosoftware.dadyjokes.qa"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
