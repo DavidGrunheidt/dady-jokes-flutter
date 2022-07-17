@@ -1,12 +1,11 @@
 import 'package:dio/dio.dart';
-import 'package:get/get.dart' as getx;
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 import '../../../flavors.dart';
 import 'base_http_service.dart';
 import 'interceptors/error_interceptor.dart';
 
-class DadyJokeHttpClient extends getx.GetxService implements BaseHttpClient {
+class DadyJokeHttpClient implements BaseHttpClient {
   static BaseOptions opts = BaseOptions(
     baseUrl: baseUrl,
     connectTimeout: connectTimeout,
