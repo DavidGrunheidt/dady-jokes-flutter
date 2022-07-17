@@ -2,9 +2,11 @@ import 'package:anim_search_bar/anim_search_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../core/utils/custom_show_alert.dart';
-import '../../global_widgets/joke_card.dart';
-import '../main_app_page/main_app_page.dart';
+import '../../core/utils/show_alert.dart';
+import '../../global_widgets/custom_button.dart';
+import '../../global_widgets/custom_card.dart';
+import '../login/login_page.dart';
+import '../main_app/main_app_page.dart';
 import 'feed_controller.dart';
 
 class FeedPage extends GetView<FeedController> {
@@ -26,6 +28,17 @@ class FeedPage extends GetView<FeedController> {
       appBar: AppBar(
         title: const Text('Feed'),
         automaticallyImplyLeading: false,
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 12),
+            child: CustomButton.text(
+              child: 'Login',
+              icon: const Icon(Icons.login_outlined, size: 20),
+              textColor: Colors.white,
+              onPressed: () => Get.toNamed(LoginPage.route),
+            ),
+          ),
+        ],
       ),
       body: Stack(
         children: [
@@ -67,7 +80,7 @@ class FeedPage extends GetView<FeedController> {
                     child: Center(
                       child: controller.loading.value || jokeData == null
                           ? const CircularProgressIndicator()
-                          : JokeCard(
+                          : CustomCard(
                               joke: jokeData,
                               currentJokeIndex: index + 1,
                               totalJokes: controller.totalJokesAll.value,

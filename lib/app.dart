@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'core/utils/global_bindings.dart';
-import 'modules/main_app_page/main_app_page.dart';
+import 'modules/main_app/main_app_page.dart';
 import 'routes/pages.dart';
 
 class App extends StatelessWidget {
