@@ -26,7 +26,7 @@ class DadyJokesResponse {
   @JsonKey(name: 'total_pages')
   final int totalPages;
 
-  DadyJokesResponse({
+  const DadyJokesResponse({
     required this.currentPage,
     required this.nextPage,
     required this.previousPage,
@@ -38,15 +38,16 @@ class DadyJokesResponse {
 
   factory DadyJokesResponse.fromJson(Map<String, dynamic> json) => _$DadyJokesResponseFromJson(json);
 
-  factory DadyJokesResponse.empty() => DadyJokesResponse(
-        currentPage: 0,
-        nextPage: 0,
-        previousPage: 0,
-        results: [],
-        searchTerm: '',
-        totalJokes: 0,
-        totalPages: 0,
-      );
+  const DadyJokesResponse.empty()
+      : this(
+          currentPage: 0,
+          nextPage: 0,
+          previousPage: 0,
+          results: const [],
+          searchTerm: '',
+          totalJokes: 0,
+          totalPages: 0,
+        );
 
   Map<String, dynamic> toJson() => _$DadyJokesResponseToJson(this);
 }

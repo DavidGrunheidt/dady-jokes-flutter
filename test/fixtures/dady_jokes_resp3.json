@@ -1,0 +1,12 @@
+{
+  "current_page": 1,
+  "limit": 10,
+  "next_page": 1,
+  "previous_page": 1,
+  "results": [
+  ],
+  "search_term": "lol",
+  "status": 200,
+  "total_jokes": 0,
+  "total_pages": 1
+}
