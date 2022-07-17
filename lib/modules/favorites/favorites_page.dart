@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../main_app_page/main_app_page.dart';
+import '../main_app/main_app_page.dart';
 
 class FavoritesPage extends StatelessWidget {
   static const route = '${MainAppPage.route}/favorites';

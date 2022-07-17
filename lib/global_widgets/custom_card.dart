@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../core/utils/custom_show_alert.dart';
+import '../core/utils/show_alert.dart';
+import '../core/values/custom_constants.dart';
 import '../data/model/dady_joke/dady_joke.dart';
 
-class JokeCard extends StatelessWidget {
+class CustomCard extends StatelessWidget {
   final DadyJoke joke;
   final int currentJokeIndex;
   final int totalJokes;
 
-  const JokeCard({
+  const CustomCard({
     super.key,
     required this.joke,
     required this.currentJokeIndex,
@@ -20,7 +21,7 @@ class JokeCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       elevation: 4,
-      borderRadius: BorderRadius.circular(4),
+      borderRadius: BorderRadius.circular(kGlobalBorderRadius),
       child: LayoutBuilder(
         builder: (context, constraints) {
           return ConstrainedBox(
